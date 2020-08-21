@@ -334,7 +334,7 @@ class LedgerButton extends Component {
             bech32: this.state.user,
             accountNumber: this.state.currentUser.accountNumber,
             sequence: this.state.currentUser.sequence,
-            denom: Coin.StakingCoin.denom,
+            denom: Coin.UtilCoin.denom,
             pk: this.state.pubKey,
             path: [44, 118, 0, 0, 0],
             memo: this.state.memo

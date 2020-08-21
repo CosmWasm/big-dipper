@@ -27,7 +27,8 @@ for (let i in coinList) {
 export default class Coin {
 	static StakingCoin = coinList.find(coin => coin.denom === Meteor.settings.public.bondDenom);
 	static MinStake = 1 / Number(Coin.StakingCoin.fraction);
-	
+	static UtilCoin = coinList.find(coin => coin.denom === Meteor.settings.public.utilDenom);
+
 	constructor(amount, denom=Meteor.settings.public.bondDenom) {
 		const lowerDenom = denom.toLowerCase();
 		this._coin = coinList.find(coin =>

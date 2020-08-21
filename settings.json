@@ -13,6 +13,7 @@
         "bech32PrefixConsAddr": "coralvalcons",
         "bech32PrefixConsPub": "coralvalconspub",
         "bondDenom": "ureef",
+        "utilDenom": "ushell",
         "powerReduction": 1000000,
         "coins": [
             {
@@ -52,5 +53,3 @@
         "delegationInterval": 900000
     }
 }
-
-
