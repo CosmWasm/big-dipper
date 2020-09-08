@@ -16,7 +16,8 @@ export default class TransactionTabs extends Component{
             stakingTxs: {},
             distributionTxs: {},
             governanceTxs: {},
-            slashingTxs: {}
+            slashingTxs: {},
+            cosmWasmTxs: {}
         }
     }
 
@@ -35,8 +36,9 @@ export default class TransactionTabs extends Component{
                 stakingTxs: this.props.stakingTxs,
                 distributionTxs: this.props.distributionTxs,
                 governanceTxs: this.props.governanceTxs,
-                slashingTxs: this.props.slashingTxs
-            })    
+                slashingTxs: this.props.slashingTxs,
+                cosmWasmTxs: this.props.cosmWasmTxs
+            })
         }
     }
 
@@ -45,6 +47,14 @@ export default class TransactionTabs extends Component{
             <CardHeader><T>transactions.transactions</T> <small>(<T>common.last</T> 100)</small></CardHeader>
             <CardBody>
                 <Nav tabs className="tx-types">
+                    <NavItem>
+                        <NavLink
+                            className={classnames({ active: this.state.activeTab === 'tx-cosmwasm' })}
+                            onClick={() => { this.toggle('tx-cosmwasm'); }}
+                        >
+                            <T>transactions.smart-contracts</T> ({numbro(this.state.cosmWasmTxs.length).format("0,0")})
+                        </NavLink>
+                    </NavItem>
                     <NavItem>
                         <NavLink
                             className={classnames({ active: this.state.activeTab === 'tx-transfer' })}
@@ -87,6 +97,20 @@ export default class TransactionTabs extends Component{
                     </NavItem>
                 </Nav>
                 <TabContent activeTab={this.state.activeTab}>
+                    <TabPane tabId="tx-cosmwasm">
+                        <Row>
+                            <Col>
+                                {(this.state.cosmWasmTxs.length > 0)?this.state.cosmWasmTxs.map((tx, i) => {
+                                    return <TransactionRow
+                                        key={i}
+                                        index={i}
+                                        tx={tx}
+                                        blockList
+                                    />
+                                }):''}
+                            </Col>
+                        </Row>
+                    </TabPane>
                     <TabPane tabId="tx-transfer">
                         <Row>
                             <Col>

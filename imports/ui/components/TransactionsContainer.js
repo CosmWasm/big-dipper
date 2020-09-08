@@ -66,6 +66,16 @@ export default TransactionsContainer = withTracker((props) => {
                 {"tx.value.msg.type":"cosmos-sdk/IBCTransferMsg"},
                 {"tx.value.msg.type":"cosmos-sdk/IBCReceiveMsg"}
             ]
+        }).fetch() : {},
+        cosmWasmTxs: transactionsExist ? Transactions.find({
+            $or: [
+                {"tx.value.msg.type":"cosmos-sdk/MsgStoreCode"},
+                {"tx.value.msg.type":"cosmos-sdk/MsgInstantiateContract"},
+                {"tx.value.msg.type":"cosmos-sdk/MsgExecuteContract"},
+                {"tx.value.msg.type":"cosmos-sdk/MsgMigrateContract"},
+                {"tx.value.msg.type":"cosmos-sdk/MsgUpdateAdmin"},
+                {"tx.value.msg.type":"cosmos-sdk/MsgClearAdmin"},
+            ]
         }).fetch() : {}
     };
 })(ValidatorTransactions);

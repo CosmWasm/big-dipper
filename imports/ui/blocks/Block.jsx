@@ -20,6 +20,7 @@ export default class Block extends Component{
             distributionTxs: {},
             governanceTxs: {},
             slashingTxs: {},
+            cosmWasmTxs: {},
         };
     }
 
@@ -32,7 +33,8 @@ export default class Block extends Component{
                     stakingTxs: this.props.stakingTxs,
                     distributionTxs: this.props.distributionTxs,
                     governanceTxs: this.props.governanceTxs,
-                    slashingTxs: this.props.slashingTxs
+                    slashingTxs: this.props.slashingTxs,
+                    cosmWasmTxs: this.props.cosmWasmTxs
                 })
             }
         }
