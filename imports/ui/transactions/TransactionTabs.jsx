@@ -57,6 +57,14 @@ export default class TransactionTabs extends Component{
                     </NavItem>
                     <NavItem>
                         <NavLink
+                            className={classnames({ active: this.state.activeTab === 'tx-cosmwasm' })}
+                            onClick={() => { this.toggle('tx-cosmwasm'); }}
+                        >
+                            <T>transactions.cosmwasm</T> ({numbro(this.state.cosmWasmTxs.length).format("0,0")})
+                        </NavLink>
+                    </NavItem>
+                    <NavItem>
+                        <NavLink
                             className={classnames({ active: this.state.activeTab === 'tx-staking' })}
                             onClick={() => { this.toggle('tx-staking'); }}
                         >
@@ -87,30 +95,8 @@ export default class TransactionTabs extends Component{
                             <T>transactions.slashing</T> ({numbro(this.state.slashingTxs.length).format("0,0")})
                         </NavLink>
                     </NavItem>
-                    <NavItem>
-                        <NavLink
-                            className={classnames({ active: this.state.activeTab === 'tx-cosmwasm' })}
-                            onClick={() => { this.toggle('tx-cosmwasm'); }}
-                        >
-                            <T>transactions.smartContracts</T> ({numbro(this.state.cosmWasmTxs.length).format("0,0")})
-                        </NavLink>
-                    </NavItem>
                 </Nav>
                 <TabContent activeTab={this.state.activeTab}>
-                    <TabPane tabId="tx-cosmwasm">
-                        <Row>
-                            <Col>
-                                {(this.state.cosmWasmTxs.length > 0)?this.state.cosmWasmTxs.map((tx, i) => {
-                                    return <TransactionRow
-                                        key={i}
-                                        index={i}
-                                        tx={tx}
-                                        blockList
-                                    />
-                                }):''}
-                            </Col>
-                        </Row>
-                    </TabPane>
                     <TabPane tabId="tx-transfer">
                         <Row>
                             <Col>
@@ -120,6 +106,20 @@ export default class TransactionTabs extends Component{
                                         index={i} 
                                         tx={tx}
                                         blockList 
+                                    />
+                                }):''}
+                            </Col>
+                        </Row>
+                    </TabPane>
+                    <TabPane tabId="tx-cosmwasm">
+                        <Row>
+                            <Col>
+                                {(this.state.cosmWasmTxs.length > 0)?this.state.cosmWasmTxs.map((tx, i) => {
+                                    return <TransactionRow
+                                        key={i}
+                                        index={i}
+                                        tx={tx}
+                                        blockList
                                     />
                                 }):''}
                             </Col>
