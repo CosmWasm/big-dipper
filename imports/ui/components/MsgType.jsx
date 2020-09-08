@@ -51,17 +51,17 @@ export const MsgType = (props) => {
         return <Badge color="dark"><T>messageTypes.IBCReceive</T></Badge>;
 
         // CosmWasm
-    case "cosmos-sdk/MsgStoreCode":
+    case "wasm/MsgStoreCode":
         return <Badge color="success"><T>messageTypes.storeCode</T></Badge>;
-    case "cosmos-sdk/MsgInstantiateContract":
+    case "wasm/MsgInstantiateContract":
         return <Badge color="success"><T>messageTypes.instantiateContract</T></Badge>;
-    case "cosmos-sdk/MsgExecuteContract":
+    case "wasm/MsgExecuteContract":
         return <Badge color="success"><T>messageTypes.executeContract</T></Badge>;
-    case "cosmos-sdk/MsgMigrateContract":
+    case "wasm/MsgMigrateContract":
         return <Badge color="success"><T>messageTypes.migrateContract</T></Badge>;
-    case "cosmos-sdk/MsgUpdateAdmin":
+    case "wasm/MsgUpdateAdmin":
         return <Badge color="success"><T>messageTypes.updateAdmin</T></Badge>;
-    case "cosmos-sdk/MsgClearAdmin":
+    case "wasm/MsgClearAdmin":
         return <Badge color="success"><T>messageTypes.clearAdmin</T></Badge>;
 
     default:

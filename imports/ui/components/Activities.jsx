@@ -96,17 +96,17 @@ export default class Activites extends Component {
             return <MsgType type={msg.type} />
 
             // CosmWasm
-        case "cosmos-sdk/MsgStoreCode":
+        case "wasm/MsgStoreCode":
             return <p><Account address={msg.value.sender}/> {(this.props.invalid) ? <T>activities.failedTo</T> : ''}<MsgType type={msg.type}/><T>common.fullStop</T><JSONPretty id="json-pretty" data={msg.value}></JSONPretty></p>
-        case "cosmos-sdk/MsgInstantiateContract":
+        case "wasm/MsgInstantiateContract":
             return <p><Account address={msg.value.sender}/> {(this.props.invalid) ? <T>activities.failedTo</T> : ''}<MsgType type={msg.type}/><T>common.fullStop</T><JSONPretty id="json-pretty" data={msg.value}></JSONPretty></p>
-        case "cosmos-sdk/MsgExecuteContract":
+        case "wasm/MsgExecuteContract":
             return <p><Account address={msg.value.sender}/> {(this.props.invalid) ? <T>activities.failedTo</T> : ''}<MsgType type={msg.type}/><T>common.fullStop</T><JSONPretty id="json-pretty" data={msg.value}></JSONPretty></p>
-        case "cosmos-sdk/MsgMigrateContract":
+        case "wasm/MsgMigrateContract":
             return <p><Account address={msg.value.sender}/> {(this.props.invalid) ? <T>activities.failedTo</T> : ''}<MsgType type={msg.type}/><T>common.fullStop</T><JSONPretty id="json-pretty" data={msg.value}></JSONPretty></p>
-        case "cosmos-sdk/MsgUpdateAdmin":
+        case "wasm/MsgUpdateAdmin":
             return <p><Account address={msg.value.sender}/> {(this.props.invalid) ? <T>activities.failedTo</T> : ''}<MsgType type={msg.type}/><T>common.fullStop</T><JSONPretty id="json-pretty" data={msg.value}></JSONPretty></p>
-        case "cosmos-sdk/MsgClearAdmin":
+        case "wasm/MsgClearAdmin":
             return <p><Account address={msg.value.sender}/> {(this.props.invalid) ? <T>activities.failedTo</T> : ''}<MsgType type={msg.type}/><T>common.fullStop</T><JSONPretty id="json-pretty" data={msg.value}></JSONPretty></p>
 
         default:

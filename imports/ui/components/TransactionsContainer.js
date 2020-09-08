@@ -69,12 +69,12 @@ export default TransactionsContainer = withTracker((props) => {
         }).fetch() : {},
         cosmWasmTxs: transactionsExist ? Transactions.find({
             $or: [
-                {"tx.value.msg.type":"cosmos-sdk/MsgStoreCode"},
-                {"tx.value.msg.type":"cosmos-sdk/MsgInstantiateContract"},
-                {"tx.value.msg.type":"cosmos-sdk/MsgExecuteContract"},
-                {"tx.value.msg.type":"cosmos-sdk/MsgMigrateContract"},
-                {"tx.value.msg.type":"cosmos-sdk/MsgUpdateAdmin"},
-                {"tx.value.msg.type":"cosmos-sdk/MsgClearAdmin"},
+                {"tx.value.msg.type":"wasm/MsgStoreCode"},
+                {"tx.value.msg.type":"wasm/MsgInstantiateContract"},
+                {"tx.value.msg.type":"wasm/MsgExecuteContract"},
+                {"tx.value.msg.type":"wasm/MsgMigrateContract"},
+                {"tx.value.msg.type":"wasm/MsgUpdateAdmin"},
+                {"tx.value.msg.type":"wasm/MsgClearAdmin"},
             ]
         }).fetch() : {}
     };
