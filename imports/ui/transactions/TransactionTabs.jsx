@@ -49,14 +49,6 @@ export default class TransactionTabs extends Component{
                 <Nav tabs className="tx-types">
                     <NavItem>
                         <NavLink
-                            className={classnames({ active: this.state.activeTab === 'tx-cosmwasm' })}
-                            onClick={() => { this.toggle('tx-cosmwasm'); }}
-                        >
-                            <T>transactions.smart-contracts</T> ({numbro(this.state.cosmWasmTxs.length).format("0,0")})
-                        </NavLink>
-                    </NavItem>
-                    <NavItem>
-                        <NavLink
                             className={classnames({ active: this.state.activeTab === 'tx-transfer' })}
                             onClick={() => { this.toggle('tx-transfer'); }}
                         >
@@ -93,6 +85,14 @@ export default class TransactionTabs extends Component{
                             onClick={() => { this.toggle('tx-slashing'); }}
                         >
                             <T>transactions.slashing</T> ({numbro(this.state.slashingTxs.length).format("0,0")})
+                        </NavLink>
+                    </NavItem>
+                    <NavItem>
+                        <NavLink
+                            className={classnames({ active: this.state.activeTab === 'tx-cosmwasm' })}
+                            onClick={() => { this.toggle('tx-cosmwasm'); }}
+                        >
+                            <T>transactions.smartContracts</T> ({numbro(this.state.cosmWasmTxs.length).format("0,0")})
                         </NavLink>
                     </NavItem>
                 </Nav>
