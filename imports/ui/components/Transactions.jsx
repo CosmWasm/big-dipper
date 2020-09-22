@@ -14,7 +14,8 @@ export default class ValidatorTransactions extends Component{
             distributionTxs: {},
             governanceTxs: {},
             slashingTxs: {},
-        };  
+            cosmWasmTxs: {},
+        };
     }
 
     componentDidUpdate(prevProps){
@@ -26,7 +27,8 @@ export default class ValidatorTransactions extends Component{
                     stakingTxs: this.props.stakingTxs,
                     distributionTxs: this.props.distributionTxs,
                     governanceTxs: this.props.governanceTxs,
-                    slashingTxs: this.props.slashingTxs
+                    slashingTxs: this.props.slashingTxs,
+                    cosmWasmTxs: this.props.cosmWasmTxs
                 })
             }
         }
@@ -43,6 +45,7 @@ export default class ValidatorTransactions extends Component{
                 distributionTxs={this.state.distributionTxs}
                 governanceTxs={this.state.governanceTxs}
                 slashingTxs={this.state.slashingTxs}
+                cosmWasmTxs={this.state.cosmWasmTxs}
             />
         }
         else {

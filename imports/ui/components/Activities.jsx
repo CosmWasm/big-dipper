@@ -45,7 +45,7 @@ export default class Activites extends Component {
         for (let i in this.props.events){
             events[this.props.events[i].type] = this.props.events[i].attributes
         }
-        
+
         switch (msg.type){
         // bank
         case "cosmos-sdk/MsgSend":
@@ -94,6 +94,20 @@ export default class Activites extends Component {
             return <MsgType type={msg.type} />
         case "cosmos-sdk/IBCReceiveMsg":
             return <MsgType type={msg.type} />
+
+            // CosmWasm
+        case "wasm/MsgStoreCode":
+            return <p><Account address={msg.value.sender}/> {(this.props.invalid) ? <T>activities.failedTo</T> : ''}<MsgType type={msg.type}/><T>common.fullStop</T><JSONPretty id="json-pretty" data={msg.value}></JSONPretty></p>
+        case "wasm/MsgInstantiateContract":
+            return <p><Account address={msg.value.sender}/> {(this.props.invalid) ? <T>activities.failedTo</T> : ''}<MsgType type={msg.type}/><T>common.fullStop</T><JSONPretty id="json-pretty" data={msg.value}></JSONPretty></p>
+        case "wasm/MsgExecuteContract":
+            return <p><Account address={msg.value.sender}/> {(this.props.invalid) ? <T>activities.failedTo</T> : ''}<MsgType type={msg.type}/><T>common.fullStop</T><JSONPretty id="json-pretty" data={msg.value}></JSONPretty></p>
+        case "wasm/MsgMigrateContract":
+            return <p><Account address={msg.value.sender}/> {(this.props.invalid) ? <T>activities.failedTo</T> : ''}<MsgType type={msg.type}/><T>common.fullStop</T><JSONPretty id="json-pretty" data={msg.value}></JSONPretty></p>
+        case "wasm/MsgUpdateAdmin":
+            return <p><Account address={msg.value.sender}/> {(this.props.invalid) ? <T>activities.failedTo</T> : ''}<MsgType type={msg.type}/><T>common.fullStop</T><JSONPretty id="json-pretty" data={msg.value}></JSONPretty></p>
+        case "wasm/MsgClearAdmin":
+            return <p><Account address={msg.value.sender}/> {(this.props.invalid) ? <T>activities.failedTo</T> : ''}<MsgType type={msg.type}/><T>common.fullStop</T><JSONPretty id="json-pretty" data={msg.value}></JSONPretty></p>
 
         default:
             return <div><JSONPretty id="json-pretty" data={msg.value}></JSONPretty></div>
