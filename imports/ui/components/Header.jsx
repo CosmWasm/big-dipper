@@ -169,11 +169,7 @@ export default class Header extends Component {
         let signedInAddress = getUser();
         return (
             <Navbar color="primary" dark expand="lg" fixed="top" id="header">
-<<<<<<< HEAD
-                <NavbarBrand tag={Link} to="/"><img src="/img/CosmWasm_Logo_Mark.svg" className="img-fluid logo"/> <span className="d-none d-xl-inline-block"><T>navbar.siteName</T>&nbsp;</span><Badge color="secondary"><T>navbar.version</T></Badge> </NavbarBrand>
-=======
-                <NavbarBrand tag={Link} to="/"><img src="/img/big-dipper-icon-light.svg" className="img-fluid logo"/> <span className="d-none d-xl-inline-block"><T>navbar.siteName</T>&nbsp;</span><Badge color="secondary">{this.state.version}</Badge> </NavbarBrand>
->>>>>>> 92b2a9b4ead03f64e0f97048273fa6a44190dee3
+                <NavbarBrand tag={Link} to="/"><img src="/img/CosmWasm_Logo_Mark.svg" className="img-fluid logo"/> <span className="d-none d-xl-inline-block"><T>navbar.siteName</T>&nbsp;</span><Badge color="secondary"><T>{this.state.version}</T></Badge> </NavbarBrand>
                 <UncontrolledDropdown className="d-inline text-nowrap">
                     <DropdownToggle caret={(this.state.networks !== "")} tag="span" size="sm" id="network-nav">{Meteor.settings.public.chainId}</DropdownToggle>
                     {this.state.networks}
